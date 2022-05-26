@@ -16,14 +16,14 @@ const Todo: React.FC<TodoProps> = ({ todos,onCheckTodo,onRemoveTodo }) => {
         <ul>
             {todos.map(todo => (
                 <li className='todo' key={todo.id}>
-                    { todo.complite 
+                    { todo.complete 
                         ? <ImCheckboxChecked 
                             onClick={() => onCheckTodo(todo.id)} 
                             className='checkbox'/> 
                         : <ImCheckboxUnchecked 
                             onClick={() => onCheckTodo(todo.id)} 
                             className='checkbox'/> }
-                    <p className={todo.complite ? 'todo-title complited' : 'todo-title notcomplited'}>{todo.title}</p>
+                    <p className={todo.complete ? 'todo-title completed' : 'todo-title notcompleted'}>{todo.title}</p>
                     <FiDelete className='delete' onClick={() => onRemoveTodo(todo.id)}/>
                 </li>
 

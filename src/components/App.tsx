@@ -12,7 +12,7 @@ const App: React.FC = () => {
         let newTodo: Itodo = {
             id: Date.now(),
             title: title,
-            complite: false
+            complete: false
         }
         setTodos(prev => [newTodo, ...prev])
     }
@@ -21,7 +21,7 @@ const App: React.FC = () => {
         setTodos(
             todos.map(todo => {
                 if( todo.id === id ) {
-                    todo.complite = !todo.complite
+                    todo.complete = !todo.complete
                 }
                 return todo
             })
