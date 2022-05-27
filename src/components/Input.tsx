@@ -4,7 +4,7 @@ import './app.scss'
 
 interface inputProps {
     addTodo(todo_title: string): void;
-    newId: number
+    newId: number;
 }
 
 const Input : React.FC<inputProps>= ({ addTodo,newId }) => {
@@ -35,10 +35,8 @@ const Input : React.FC<inputProps>= ({ addTodo,newId }) => {
             setTitle('')
             setPH('')
             setRequest(false)
-            // setPrint(false)
         }
     },[request,print])
-    // console.log(`DATA = ${JSON.stringify(data)}`);
 
     return (
         <div className='form'>
