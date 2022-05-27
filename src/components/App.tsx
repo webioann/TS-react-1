@@ -1,4 +1,4 @@
-import React,{ useState,useEffect } from 'react'
+import React,{ useState,useRef } from 'react'
 import Input from './Input'
 import Todo from './Todo'
 import { Itodo } from '../types'
@@ -7,16 +7,18 @@ import './app.scss'
 const App: React.FC = () => {
 
     const[todos,setTodos] = useState<Itodo[]>([])
+    let count = useRef<number>(1)
 
-    const addTodo = (title: string) => {
+    const addTodo = (todo_title: string) => {
         let newTodo: Itodo = {
-            id: Date.now(),
-            title: title,
+            userId: 1,
+            id: count.current,
+            title: todo_title,
             complete: false
         }
         setTodos(prev => [newTodo, ...prev])
+        count.current++
     }
-
     const checkTodo = (id: number) => {
         setTodos(
             todos.map(todo => {
@@ -35,7 +37,7 @@ const App: React.FC = () => {
 
     return (
         <div className='container'>
-            <Input addTodo={addTodo}/>
+            <Input addTodo={addTodo} newId={count.current}/>
             <Todo todos={todos} onCheckTodo={checkTodo} onRemoveTodo={removeTodo}/>
         </div>
     )
