@@ -9,7 +9,7 @@ interface inputProps {
 
 const Input : React.FC<inputProps>= ({ addTodo,newId }) => {
 
-    let data = useGetServerData(newId)
+    let data = useGetServerData()
     const[todo_title,setTitle] = useState<string>('')
     const[request,setRequest] = useState<boolean>(false)
     const[print,setPrint] = useState<boolean>(false)
@@ -30,24 +30,16 @@ const Input : React.FC<inputProps>= ({ addTodo,newId }) => {
             setPrint(false)
         }
         if(request) {
-            addTodo(`data[0].title`)
+            let currentData = data.filter(unit => unit.id === newId)
+            addTodo(currentData[0].title)
             setTitle('')
             setPH('')
             setRequest(false)
             // setPrint(false)
         }
-        if(!todo_title) {
-            setPH('new todo not created')
-        }
-
     },[request,print])
+    // console.log(`DATA = ${JSON.stringify(data)}`);
 
-    // const createTodo = (event: React.MouseEvent) => {
-    // }
-    // useEffect(() => {
-    //     createTodo
-    // },[request])
-    // console.log(`data.todo_title = ${data.title}`);
     return (
         <div className='form'>
             <label htmlFor='input'>enter todo</label>
