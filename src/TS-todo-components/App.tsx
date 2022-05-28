@@ -1,7 +1,7 @@
 import React,{ useState,useRef } from 'react'
 import Input from './Input'
 import Todo from './Todo'
-import { Itodo } from '../types'
+import { Itodo } from '../types_todo'
 import './app.scss'
 
 const App: React.FC = () => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { FiDelete } from 'react-icons/fi'
 import { ImCheckboxChecked,ImCheckboxUnchecked } from 'react-icons/im'
-import { TodoProps } from '../types'
+import { TodoProps } from '../types_todo'
 import './app.scss'
 
 const Todo: React.FC<TodoProps> = ({ todos,onCheckTodo,onRemoveTodo }) => {
