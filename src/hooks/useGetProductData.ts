@@ -1,18 +1,17 @@
 import { useState,useEffect } from "react"
 import axios from "axios"
-import { ResponsDataType } from "../types_todo";
 
+export const useGetProductData = () => {
 
-export const useGetServerData = () => {
-
-    const[data,setData] = useState<ResponsDataType[]>([])
-    const URL = `https://fakestoreapi.com/products`
+    const[prod,setData] = useState([])
+    const URL = `https://fakestoreapi.com/products?limit=2`
 
     useEffect(() => {
-        axios.get(URL)
-        .then(response => response.data)
-        .then((json)=> setData(json))
+        fetch(URL)
+        .then(response => response.json())
+        .then(result=> setData(result))
+
     },[])
 
-    return data
+    return prod
 };

@@ -1,9 +1,19 @@
-import React from 'react'
+import React,{ useState } from 'react'
 import './card.scss'
 
-const Card:React.FC = () => {
+type props = {
+    image?: string
+}
+
+const Card:React.FC<props> = ({ image }) => {
+
+    
+
     return (
-        <div className='card'>Card</div>
+        <div className='card'
+            style={{backgroundImage: `url(${image})`}}>
+            Card
+        </div>
     )
 }
 
